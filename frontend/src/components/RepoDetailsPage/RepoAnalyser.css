@@ -1,0 +1,31 @@
+/* Apply Poppins font globally */
+#repo-analyser-main {
+  font-family: "Poppins", sans-serif;
+  background-color: #070f18;
+}
+
+/* Glass effect for cards */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+/* Ensure charts are responsive */
+canvas {
+  max-width: 100%;
+}
+
+/* Custom badge styling */
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* Hover effects for buttons */
+.MuiButton-root:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}

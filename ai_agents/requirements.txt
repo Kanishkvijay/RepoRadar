@@ -1,0 +1,10 @@
+gitpython
+faiss-cpu
+transformers
+torch
+sentence-transformers
+PyGithub
+pandas
+jinja2
+weasyprint
+ollama

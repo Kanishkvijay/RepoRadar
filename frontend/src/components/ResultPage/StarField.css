@@ -1,0 +1,72 @@
+
+.stars-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  pointer-events: none;
+  background: linear-gradient(to bottom, #16161d, #1f1f3a, #3b2f4a);
+  overflow: hidden;
+  z-index: -1; 
+}
+  
+  .stars, .extras {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .star {
+    fill: white;
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 4s ease-in-out infinite;
+  }
+  
+  .animate-twinkle-delay-1 {
+    animation: twinkle 4s ease-in-out infinite;
+    animation-delay: -1.32s;
+  }
+  
+  .animate-twinkle-delay-2 {
+    animation: twinkle 4s ease-in-out infinite;
+    animation-delay: -2.64s;
+  }
+  
+  @keyframes twinkle {
+    25% {
+      opacity: 0;
+    }
+  }
+  
+  .comet {
+    transform-origin: center center;
+    animation: comet 10s linear infinite;
+  }
+  
+  .comet-b {
+    animation-delay: -3.3s;
+  }
+  
+  .comet-c {
+    animation-delay: -5s;
+  }
+  
+  @keyframes comet {
+    0%, 40% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    60%, 100% {
+      transform: translateX(-100vmax);
+      opacity: 0;
+    }
+  }
+

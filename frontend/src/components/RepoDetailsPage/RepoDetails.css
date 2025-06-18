@@ -1,0 +1,142 @@
+.card {
+  max-width: 672px;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.search-form {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.search-button {
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #2563eb;
+}
+
+.search-button:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+.error-message {
+  padding: 12px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.repo-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.repo-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.owner-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.owner-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.owner-info {
+  font-weight: 500;
+  color: #374151;
+}
+
+.owner-link,
+.info-link {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.owner-link:hover,
+.info-link:hover {
+  text-decoration: underline;
+}
+
+.repo-info {
+  color: #374151;
+}
+
+.info-label {
+  font-weight: 500;
+}
+
+.topics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.topic-badge {
+  padding: 4px 8px;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.github-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #22c55e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.github-button:hover {
+  background-color: #16a34a;
+}

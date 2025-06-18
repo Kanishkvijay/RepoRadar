@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pydantic
+gitpython
+faiss-cpu
+transformers
+torch
+sentence-transformers
+PyGithub
+pandas
+jinja2
+weasyprint
+ollama
+python-multipart

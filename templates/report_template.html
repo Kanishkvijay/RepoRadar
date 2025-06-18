@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepoRadar: {{ project_name }}</title>
+    <style>
+        /* Reset and base styles - PDFKit compatible */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            color: #333333;
+            line-height: 1.5;
+            background-color: #ffffff;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Container styles */
+        .container {
+            width: 100%;
+            padding: 40px;
+            background-color: #ffffff;
+            padding-bottom: 100px; /* Space for footer */
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Header styles with fade-in effect */
+        .header {
+            margin-bottom: 35px;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3b82f6;
+            animation: fadeIn 1s ease;
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+            animation: slideDown 1s ease;
+        }
+        
+        /* Main content area */
+        .main-content {
+            margin: 30px 0;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        /* Top stats area with pulse effect */
+        .stats-row {
+            margin-bottom: 35px;
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            animation: slideUp 1s ease;
+        }
+        
+        .stats-box {
+            display: table-cell;
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-box:first-child {
+            border-right: none;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .stats-box:last-child {
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .label {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            color: #4b5563;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        
+        .score-display {
+            font-size: 42px;
+            font-weight: bold;
+            color: #10b981;
+            padding: 8px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        .verdict-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #dcfce7;
+            border: 1px solid #10b981;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #059669;
+            font-size: 18px;
+            animation: badge-glow 3s infinite alternate;
+        }
+        
+        /* Content sections with slide effect */
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background-color: #ffffff;
+            animation: slideLeft 1.2s ease;
+        }
+        
+        .section:nth-child(even) {
+            animation: slideRight 1.2s ease;
+        }
+        
+        .section-header {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        .section-content {
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        /* Footer styles - fixed at bottom */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            border-top: 1px solid #e0e3e7;
+            color: #6b7280;
+            background-color: #ffffff;
+        }
+        
+        .footer p {
+            margin: 6px 0;
+            font-size: 12px;
+        }
+        
+        /* Highlight backgrounds */
+        .highlight-bg {
+            background-color: #f8f9fa;
+        }
+        
+        /* Accent backgrounds */
+        .accent-bg {
+            background-color: #e0f2fe;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        /* Animation keyframes - PDFKit compatible */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideLeft {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes badge-glow {
+            from { box-shadow: 0 0 5px rgba(16, 185, 129, 0.2); }
+            to { box-shadow: 0 0 15px rgba(16, 185, 129, 0.6); }
+        }
+        
+        /* Utility classes */
+        .mb-10 {
+            margin-bottom: 10px;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mt-20 {
+            margin-top: 20px;
+        }
+        
+        .p-15 {
+            padding: 15px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .blue-text {
+            color: #3b82f6;
+        }
+        
+        .green-text {
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">RepoRadar</div>
+            <h1>Project Analysis Report: {{ project_name }}</h1>
+        </header>
+        
+        <div class="main-content">
+            <div class="stats-row">
+                <div class="stats-box">
+                    <div class="label">Originality Score</div>
+                    <div class="score-display">{{ originality_score }}</div>
+                </div>
+                
+                <div class="stats-box">
+                    <div class="label">Final Verdict</div>
+                    <div class="verdict-badge">{{ verdict }}</div>
+                </div>
+            </div>
+            
+            <div class="section accent-bg">
+                <div class="section-header">
+                    <div class="section-title blue-text">Idea Summary</div>
+                </div>
+                <div class="section-content">
+                    {{ idea_summary }}
+                </div>
+            </div>
+            
+            <div class="section highlight-bg">
+                <div class="section-header">
+                    <div class="section-title blue-text">Similar Projects</div>
+                </div>
+                <div class="section-content">
+                    {{ similar_projects }}
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>Generated by RepoRadar • Analysis Report v2.0</p>
+            <p>© 2025 RepoRadar - All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
